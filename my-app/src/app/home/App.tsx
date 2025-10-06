@@ -1,24 +1,3 @@
-// import { Alert, Button, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
-// import { styles } from "./style";
-// import {Event} from "../../components/Event"
-
-// export default function App() {
-//     return (
-//         <View style={styles.container}>
-//             <Text style={styles.text}>Nome Evento</Text>
-//             <View style={styles.form}>
-//             <TextInput style={styles.input} placeholder='Digite o evento' placeholderTextColor={'#fff'}></TextInput>
-//             <TouchableOpacity  style={styles.button} onPress={()=>{Alert.alert("Teste Botão")}}>
-//                 <Text style={styles.buttonText}>+</Text>
-//             </TouchableOpacity>
-//             </View>
-//             <Event name="Evento novo"/>
-//             <Event name= "Evento cancelado"/>
-//         </View>
-        
-//     )
-// }
-
 import React, { useState } from "react";
 import {
   Text,
@@ -28,27 +7,42 @@ import {
   FlatList,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import { styles } from "./style"; 
-
+import styles from "./styles"; // Certifique-se de que styles.ts está correto
 
 interface Item {
   id: string;
   nome: string;
 }
- export default function App() {
-  const [item, setItem] = useState<string>("");
 
-
-  const [lista, setLista] = useState<Item[]>([
-    { id: "1", nome: "Arroz" },
-    { id: "2", nome: "Feijão" },
-    { id: "3", nome: "Leite" },
-  ]);
+export default function App() {
+  const [nomeProprietario, setNomeProprietario] = useState("");
+  const [tipoImovel, setTipoImovel] = useState("");
+  const [largura, setLargura] = useState("");
+  const [comprimento, setComprimento] = useState("");
+  const [lista, setLista] = useState<Item[]>([]);
 
   const adicionarItem = () => {
-    if (item.trim() === "") return;
-    setLista([...lista, { id: Date.now().toString(), nome: item }]);
-    setItem("");
+    if (
+      nomeProprietario.trim() === "" ||
+      tipoImovel.trim() === "" ||
+      largura.trim() === "" ||
+      comprimento.trim() === ""
+    ) {
+      return;
+    }
+
+    const nome = `${nomeProprietario} - ${tipoImovel} (${largura} x ${comprimento} m)`;
+    setLista([...lista, { id: Date.now().toString(), nome }]);
+
+    // Limpa os campos
+    setNomeProprietario("");
+    setTipoImovel("");
+    setLargura("");
+    setComprimento("");
+  };
+
+  const excluirItem = (id: string) => {
+    setLista(lista.filter((item) => item.id !== id));
   };
 
   const renderItem = ({ item, index }: { item: Item; index: number }) => (
@@ -58,25 +52,52 @@ interface Item {
         index === lista.length - 1 && { borderBottomWidth: 0 },
       ]}
     >
-      <AntDesign name="checkcircle" size={20} color="black" />
+      <AntDesign name="checkcircle" size={20} color="#fff" />
       <Text style={styles.texto}>{item.nome}</Text>
+      <TouchableOpacity onPress={() => excluirItem(item.id)}>
+        <AntDesign name="delete" size={20} color="red" />
+      </TouchableOpacity>
     </View>
   );
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Lista de Compras</Text>
+      <Text style={styles.titulo}>CADASTRO IMÓVEL</Text>
 
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Digite o Produto"
-          placeholderTextColor="#B39DDB"
-          value={item}
-          onChangeText={setItem}
+          placeholder="Nome do Proprietário"
+          placeholderTextColor="#fff"
+          value={nomeProprietario}
+          onChangeText={setNomeProprietario}
         />
+        <TextInput
+          style={styles.input}
+          placeholder="Tipo de Imóvel"
+          placeholderTextColor="#fff"
+          value={tipoImovel}
+          onChangeText={setTipoImovel}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Largura do Terreno (m)"
+          placeholderTextColor="#fff"
+          keyboardType="numeric"
+          value={largura}
+          onChangeText={setLargura}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Comprimento do Terreno (m)"
+          placeholderTextColor="#fff"
+          keyboardType="numeric"
+          value={comprimento}
+          onChangeText={setComprimento}
+        />
+
         <TouchableOpacity style={styles.botao} onPress={adicionarItem}>
-          <AntDesign name="pluscircleo" size={24} color="white" />
+          <AntDesign name="pluscircleo" size={24} color="#fff" />
         </TouchableOpacity>
       </View>
 
