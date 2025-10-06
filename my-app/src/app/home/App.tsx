@@ -123,7 +123,6 @@ import {
 } from 'react-native';
 import { styles } from './styles';
 
-// Tipando o item da lista de alimentos
 interface Item {
   id: string;
   nome: string;
