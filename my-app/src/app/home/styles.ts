@@ -50,89 +50,179 @@
 //     marginLeft: 10,
 //   },
 // });
+//  import { StyleSheet } from 'react-native';
+
+// export const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#F0F4F8',
+//     padding: 20,
+//   },
+//   titulo: {
+//     fontSize: 26,
+//     fontWeight: 'bold',
+//     alignSelf: 'center',
+//     marginBottom: 20,
+//     color: '#333',
+//   },
+//   input: {
+//     backgroundColor: '#FFFFFF',
+//     padding: 12,
+//     borderRadius: 8,
+//     marginBottom: 10,
+//     borderWidth: 1,
+//     borderColor: '#CED4DA',
+//   },
+//   botao: {
+//     backgroundColor: '#6C63FF',
+//     padding: 12,
+//     borderRadius: 8,
+//     alignItems: 'center',
+//     marginBottom: 20,
+//   },
+//   botaoTexto: {
+//     color: '#FFFFFF',
+//     fontWeight: 'bold',
+//     fontSize: 16,
+//   },
+//   listaCabecalho: {
+//     flexDirection: 'row',
+//     justifyContent: 'space-between',
+//     paddingBottom: 10,
+//     marginTop: 10,
+//   },
+//   listaTitulo: {
+//     fontWeight: 'bold',
+//     fontSize: 16,
+//     color: '#333',
+//   },
+//   limparTexto: {
+//     color: '#FF6B6B',
+//     fontWeight: 'bold',
+//   },
+//   itemLinha: {
+//     flexDirection: 'row',
+//     justifyContent: 'space-between',
+//     backgroundColor: '#FFFFFF',
+//     padding: 12,
+//     marginBottom: 8,
+//     borderRadius: 6,
+//     borderWidth: 1,
+//     borderColor: '#E0E0E0',
+//   },
+//   removerTexto: {
+//     color: '#FF6B6B',
+//     fontSize: 14,
+//     fontWeight: '600',
+//   },
+//   totalBox: {
+//     position: 'absolute',
+//     bottom: 20,
+//     right: 20,
+//     backgroundColor: '#A0E7E5',
+//     paddingVertical: 10,
+//     paddingHorizontal: 20,
+//     borderRadius: 20,
+//     shadowColor: '#000',
+//     shadowOpacity: 0.1,
+//     shadowOffset: { width: 0, height: 2 },
+//     shadowRadius: 4,
+//     elevation: 4,
+//   },
+//   totalTexto: {
+//     fontWeight: 'bold',
+//     fontSize: 16,
+//     color: '#333',
+//   },
+// });
 
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0F4F8',
     padding: 20,
+    backgroundColor: '#fff',
   },
   titulo: {
-    fontSize: 26,
+    fontSize: 16,
     fontWeight: 'bold',
-    alignSelf: 'center',
-    marginBottom: 20,
-    color: '#333',
-  },
-  input: {
-    backgroundColor: '#FFFFFF',
-    padding: 12,
-    borderRadius: 8,
     marginBottom: 10,
-    borderWidth: 1,
-    borderColor: '#CED4DA',
   },
-  botao: {
-    backgroundColor: '#6C63FF',
-    padding: 12,
-    borderRadius: 8,
-    alignItems: 'center',
-    marginBottom: 20,
+  linhaVermelha: {
+    height: 2,
+    backgroundColor: 'red',
+    marginVertical: 10,
   },
-  botaoTexto: {
-    color: '#FFFFFF',
-    fontWeight: 'bold',
-    fontSize: 16,
+  descricao: {
+    fontSize: 14,
+    marginBottom: 10,
   },
-  listaCabecalho: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingBottom: 10,
-    marginTop: 10,
-  },
-  listaTitulo: {
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: '#333',
-  },
-  limparTexto: {
-    color: '#FF6B6B',
-    fontWeight: 'bold',
+  subTitulo: {
+    fontSize: 14,
+    fontStyle: 'italic',
+    marginBottom: 15,
   },
   itemLinha: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: '#FFFFFF',
-    padding: 12,
-    marginBottom: 8,
-    borderRadius: 6,
-    borderWidth: 1,
-    borderColor: '#E0E0E0',
-  },
-  removerTexto: {
-    color: '#FF6B6B',
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  totalBox: {
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
-    backgroundColor: '#A0E7E5',
+    borderBottomWidth: 1,
+    borderColor: '#eee',
     paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 20,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    elevation: 4,
+    alignItems: 'center',
   },
-  totalTexto: {
+  nomeProduto: {
     fontWeight: 'bold',
     fontSize: 16,
-    color: '#333',
+  },
+  nomeProdutor: {
+    color: '#666',
+    fontSize: 12,
+  },
+  quantidade: {
+    color: 'green',
+    fontSize: 16,
+  },
+  valor: {
+    fontSize: 16,
+  },
+  totalContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10,
+  },
+  totalLabel: {
+    fontSize: 14,
+    color: '#666',
+  },
+  totalLabelTotal: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  totalValor: {
+    fontSize: 14,
+    color: '#666',
+  },
+  totalPedido: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  botaoEnviar: {
+    backgroundColor: 'green',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  botaoTexto: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  status: {
+    marginTop: 20,
+    fontSize: 14,
+    fontWeight: 'bold',
   },
 });
+
